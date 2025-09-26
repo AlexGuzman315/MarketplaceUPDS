@@ -33,7 +33,7 @@ app.post("/login", async (req, res) => {
 
   try {
     // Buscar usuario en la BD
-    const [rows] = await pool.query("SELECT * FROM usuario WHERE correo = ?", [email]);
+    const { rows } = await pool.query("SELECT * FROM usuario WHERE correo = $1", [email]);
 
     if (rows.length === 0) {
       return res.status(401).send("❌ Usuario no encontrado");
