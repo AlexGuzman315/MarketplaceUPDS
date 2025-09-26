@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UPDS Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a242e",
+                        "text-light": "#0d141b",
+                        "text-dark": "#e7edf3",
+                        "text-muted-light": "#4c739a",
+                        "text-muted-dark": "#94a3b8",
+                        "border-light": "#e2e8f0",
+                        "border-dark": "#2e3a48",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="flex flex-col min-h-screen">
+<header class="bg-surface-light dark:bg-surface-dark border-b border-border-light dark:border-border-dark sticky top-0 z-10">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center gap-8">
+    <a class="flex items-center text-lg font-bold text-text-light dark:text-text-dark" href="/index.html">
+        <img src="/images/UPDS.png" alt="UPDS Logo" class="h-12 w-32" >
+        <img src="/images/letras.png" alt="UPDS Logo" class="h-12 w-32" >
+    </a>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium text-primary dark:text-primary transition-colors" href="/">Inicio</a>
+<a class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:text-primary dark:hover:text-primary transition-colors" href="/articulosPublicados.html">Artículos Publicados</a>
+<a class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:text-primary dark:hover:text-primary transition-colors" href="/articulosIntercambiados.html">Articulos Intercambiados</a>
+<a class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:text-primary dark:hover:text-primary transition-colors" href="/chat.html">Chat</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button id="acceso" class="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-primary rounded-full hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">Acceder</button>
+<button id="perfilBtn" class="relative">
+<img alt="Foto de perfil" class="size-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPnqmxyZztUymxgQLQ4C9Xmn1Re_6Oust47gFBGuflhIol6uFtmAMW0R3i5-GmhKvTbj9qstzuTY9jIFBq0nefmqxR6Eg7HSwlLPGUnqOs7En0VE6P-Htcx0aQIR5r6ggeAqVBYLnMGkaiqqz2WkwsolMHKrc4_onU-RYGqqIi1Vz7apneYyN_EpNkcbkD6MXNEil4J1dBkc-xbno_-F5bjXzJP6Q3SJjg2YyIKT6ByJ5bi7dmiBqwHfDM0s4pl3lg8hS2GIC_o7E"/>
+</button>
+<button class="md:hidden p-2 rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark">menu</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<section class="mb-12">
+<div class="relative rounded-lg overflow-hidden h-96">
+<div class="absolute inset-0 bg-gray-900 bg-opacity-60 flex flex-col items-center justify-center text-center p-8">
+<h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4">Marketplace Exclusivo UPDS</h1>
+<p class="text-lg text-gray-200 mb-8 max-w-2xl">Compra, vende e intercambia artículos con la comunidad universitaria.</p>
+<div class="w-full max-w-lg">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-text-muted-light">search</span>
+<input class="w-full pl-12 pr-4 py-3 rounded-full bg-surface-light border-transparent focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Busca tu próximo artículo..." type="search"/>
+</div>
+</div>
+</div>
+<div class="absolute inset-0 z-[-1]">
+<div class="w-full h-full flex">
+<div class="w-1/4 h-full">
+<img alt="Libros universitarios" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0dHUdFFcD5hWdIAt-dp4VKsDwf-jtIQ7VUCMgnG3M_mH6y6TjmwKq7y0pP5QqJb8w9LDz1ZcDakGZHgHYYdk9FeO5Ihj60vxr9E1swU2h066OTeL07-qLO6k4EWkjFTTuK_PtzWGUJN-2yH0PpYzZ555f5Hs4I8KKiXArqpghTHuvLSggy4GPwrJj_8XWjDP2afjaakuS5FSG4ic2G476vLIPYYnBLRhOC1KMzP8oDbtcv08Hl1bR4NqwN9Ydmhzhpoq37mQljF8"/>
+</div>
+<div class="w-1/4 h-full">
+<img alt="Carpeta de diseño" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiwLK0MqQfiaAhOfl-jQEC6okhU2rn-ffJbR9pLEmr47-ibDTvD1DygtmRvgqsOh7V9pmvFAelD7kM1zBCo8beegXoIRahzEckUj6dByc6JNEX1uQ_sJN_KTSxW8DaccHBcRcFENn8fnR8yGfise0WNdSyppkh7xrDPLE0PRyj80reBapn0X3NAvBgmzT82sh7j4cPG5NexmngxRa8YWZ25LdvHQXhaJF5o0xIw-mCAKwWxGMHVKw9ev4FZJNzAa98gr4phcBgazE"/>
+</div>
+<div class="w-1/4 h-full">
+<img alt="Calculadora científica y laptop" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMiHVJut2NDyoOdl2BCbTTwHEcZdIKgRmbcR2Q6v38SqRGHxkQSttQbQC6c326F5aAcPDYggx68md-Qel3tqOCbfn2wP_tf5kTNAGfJZDGaYco1onhH8gBxSUHwpo4W4sFFRgzgeuK3RYrXhek3aSs-nyOurrQKlPUi5u48GpJboGwGXqkk7YEB13NrJ9DxESYl3e07GAz6NWx5pYevIdapeLyOKbjUY874z5UQdBg80CAyoyGZZhQePfitte-uY-PD9To5vdPi20"/>
+</div>
+<div class="w-1/4 h-full">
+<img alt="Varios artículos de estudiante" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEUOgVF4517TA69aysgETHUp6nbKfylv4k2nSe8hVcE3ssoZy_GhEeStC5yRB5bhytHIxUFBOk4GsYi0pVu1Ysi7T_NfMZDfActrP-QdeJ0zOpqTpm-Hv9ol9bgldBsoJM8mVfkhbYpxKv4X-CRvZZiakeUlHPXOANTt7r3EQ4VO1Q4Jt8Cv5mBWUhDwOEz3cBFmHN5deNChJOvYTSzVEKMC455-Xw0ptO2RdzsYGa0-mR1o-wb_VvhKQkt5NkaJ4W9WTux9bSmSE"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-12">
+<h2 class="text-2xl font-bold mb-6 text-text-light dark:text-text-dark">Categorías</h2>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+<a class="group flex flex-col items-center gap-2 p-4 bg-surface-light dark:bg-surface-dark rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-300 transform hover:-translate-y-1" href="#">
+<div class="w-16 h-16 flex items-center justify-center bg-primary/10 dark:bg-primary/20 rounded-full text-primary">
+<span class="material-symbols-outlined text-3xl">menu_book</span>
+</div>
+<p class="text-sm font-semibold text-text-light dark:text-text-dark">Libros</p>
+</a>
+<a class="group flex flex-col items-center gap-2 p-4 bg-surface-light dark:bg-surface-dark rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-300 transform hover:-translate-y-1" href="#">
+<div class="w-16 h-16 flex items-center justify-center bg-primary/10 dark:bg-primary/20 rounded-full text-primary">
+<span class="material-symbols-outlined text-3xl">folder_shared</span>
+</div>
+<p class="text-sm font-semibold text-text-light dark:text-text-dark">Portafolio</p>
+</a>
+<a class="group flex flex-col items-center gap-2 p-4 bg-surface-light dark:bg-surface-dark rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-300 transform hover:-translate-y-1" href="#">
+<div class="w-16 h-16 flex items-center justify-center bg-primary/10 dark:bg-primary/20 rounded-full text-primary">
+<span class="material-symbols-outlined text-3xl">description</span>
+</div>
+<p class="text-sm font-semibold text-text-light dark:text-text-dark">Apuntes</p>
+</a>
+<a class="group flex flex-col items-center gap-2 p-4 bg-surface-light dark:bg-surface-dark rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-300 transform hover:-translate-y-1" href="#">
+<div class="w-16 h-16 flex items-center justify-center bg-primary/10 dark:bg-primary/20 rounded-full text-primary">
+<span class="material-symbols-outlined text-3xl">devices</span>
+</div>
+<p class="text-sm font-semibold text-text-light dark:text-text-dark">Tecnologías</p>
+</a>
+<a class="group flex flex-col items-center gap-2 p-4 bg-surface-light dark:bg-surface-dark rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-300 transform hover:-translate-y-1" href="#">
+<div class="w-16 h-16 flex items-center justify-center bg-primary/10 dark:bg-primary/20 rounded-full text-primary">
+<span class="material-symbols-outlined text-3xl">more_horiz</span>
+</div>
+<p class="text-sm font-semibold text-text-light dark:text-text-dark">Otros</p>
+</a>
+</div>
+</section>
+<section>
+<h2 class="text-2xl font-bold mb-6 text-text-light dark:text-text-dark">Artículos Destacados</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group flex flex-col">
+<div class="relative">
+<img alt="Libros de Cálculo" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDN14qKFybsGLE9UCVDarInlbr_tsH-O1BEu4pr7OqUN6bM9YoTMHRjSFhxV6aYpKYUqEOXhN-RLGqZbfKMiBrZ6nBj8pLm_Y8fqXJRXjTJZbJ7jSoUNjC2bngRQHtpHHyIspQwZ3na0BpswyyX13ajvMnpJHf-v4fh8ndHTtZPllM6UOAY6Ibh_t9I0HI7RCKaGoGoNgjvVp78vPBz7BVl3dp2W4ad4PKmemupUk8QWBchDoFaiB8iZRFR5UK5qCjkpOu7t53RLkE"/>
+<div class="absolute top-2 right-2 bg-primary text-white text-xs font-bold px-2 py-1 rounded">USADO</div>
+</div>
+<div class="p-4 flex-grow flex flex-col">
+<h3 class="font-bold text-lg mb-1 text-text-light dark:text-text-dark group-hover:text-primary transition-colors">Libros de Cálculo Vol. 1 y 2</h3>
+<p class="text-text-muted-light dark:text-text-muted-dark text-sm mb-4 flex-grow">Ideales para los primeros semestres de ingeniería.</p>
+<button class="w-full mt-auto bg-primary text-white py-2 px-4 rounded-md hover:bg-primary/90 transition-colors">Ver más detalle</button>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group flex flex-col">
+<img alt="Portafolio de Arquitectura" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0MdI1Fn3gWUSJQq5QGesCGf34SeRIK_wKMsff4wV4pb6YuXfdFbXVZ_SNQ78nOWghDydk5s-8CA4GjbPKqnSsTXFPTUhOXwrnFfGeVFXiWTu5HpJ-auWxPKJOGQodzftumvchW1pdIX5acAdtTXYhhuPhNQAf-GRpjwPCb9AilT7YHSlNgScj0MNg9Bqo7q2lEs4z5N4WSVp_HWUMjvRoxCxGNFCA3E_GVWmAm3VohrhpXZrdCJlYL89BL1XJ0VAotV3_nTJiuz4"/>
+<div class="p-4 flex-grow flex flex-col">
+<h3 class="font-bold text-lg mb-1 text-text-light dark:text-text-dark group-hover:text-primary transition-colors">Portafolio de Proyectos</h3>
+<p class="text-text-muted-light dark:text-text-muted-dark text-sm mb-4 flex-grow">Carpeta de cuero para presentar tus trabajos de diseño.</p>
+<button class="w-full mt-auto bg-primary text-white py-2 px-4 rounded-md hover:bg-primary/90 transition-colors">Ver más detalle</button>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group flex flex-col">
+<div class="relative">
+<img alt="Calculadora Científica" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe0g84TMu75Dma07dBRElG7ruUA0ME7EcK5ccz7XPOEninDX-AyvjoM2zzA8yzXdoufXNeS0S4tso793qGQLkcpOfeddOzOgIz3QEJiVuyb53LeaG0sywJ_ZTNHo31MzDO5UfuYVl8FJ-ZT9-T1IkvP30JLcPODyYpD9zLJBxGECA4DMzln-VFBSf0WkK1Mbgn_GlFoawzOoL29F8BYoj-aY6Aknx2WzAOurTHroxbCHErR7B2ljK-6o8MuFUTCiJg-sZmXE-bKb8"/>
+<div class="absolute top-2 right-2 bg-primary text-white text-xs font-bold px-2 py-1 rounded">NUEVO</div>
+</div>
+<div class="p-4 flex-grow flex flex-col">
+<h3 class="font-bold text-lg mb-1 text-text-light dark:text-text-dark group-hover:text-primary transition-colors">Calculadora Científica FX-991</h3>
+<p class="text-text-muted-light dark:text-text-muted-dark text-sm mb-4 flex-grow">Perfecta para exámenes y tareas de ciencias exactas.</p>
+<button class="w-full mt-auto bg-primary text-white py-2 px-4 rounded-md hover:bg-primary/90 transition-colors">Ver más detalle</button>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group flex flex-col">
+<img alt="Laptop para estudiantes" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCuGMDPIoZ86LGFeCfb6-HFZOZMPECesKWa1BweitTosM5HjKF-N8wnJKrdqfibAF1voITDvt59cKFvuhLmDcNUU4K2QsDaXjC4QR8o0ZVeZ3U8oKeBOAQk2JGgen43gQwy1yaZkLB2oU-LYt-acyIBkOu7RU2R9qwpVjwDx0jLAwA6x24sySZVd1s9mE8qlKnKjkKrBGpws-EcjC6FMIGb0mxU7u4D9wYuVQF_u-P44jKnaz1LbyOa4M_FOpSrMYE6tZbVTzYdt0"/>
+<div class="p-4 flex-grow flex flex-col">
+<h3 class="font-bold text-lg mb-1 text-text-light dark:text-text-dark group-hover:text-primary transition-colors">Laptop para Estudiante</h3>
+<p class="text-text-muted-light dark:text-text-muted-dark text-sm mb-4 flex-grow">Ligera y potente, ideal para tomar apuntes y trabajos.</p>
+<button class="w-full mt-auto bg-primary text-white py-2 px-4 rounded-md hover:bg-primary/90 transition-colors">Ver más detalle</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-surface-light dark:bg-surface-dark border-t border-border-light dark:border-border-dark mt-auto">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-text-muted-light dark:text-text-muted-dark">
+<p>© 2024 UPDS Marketplace. Todos los derechos reservados.</p>
+</div>
+</footer>
+</div>
+</body>
+<script>
+    const btn = document.getElementById('acceso');
+    btn.addEventListener('click', () => {
+        window.location.href = 'iniciosesion.html';
+    });
+</script>
+<script>
+  const btnAcceso = document.getElementById("acceso");
+
+  fetch("/api/session")
+    .then(res => res.json())
+    .then(data => {
+      if (data.loggedIn) {
+        // Cambiar texto a "Cerrar sesión"
+        btnAcceso.textContent = "Cerrar sesión";
+        // Cambiar la acción para cerrar sesión
+        btnAcceso.onclick = () => {
+          window.location.href = "/logout";
+        };
+      } else {
+        // Si no está logueado, sigue apuntando al login
+        btnAcceso.textContent = "Acceder";
+        btnAcceso.onclick = () => {
+          window.location.href = "/iniciosesion.html";
+        };
+      }
+    });
+</script>
+<script>
+  // Consulta al backend si el usuario está logueado
+  fetch("/api/session")
+    .then(res => res.json())
+    .then(data => {
+      const perfilBtn = document.getElementById("perfilBtn");
+      if (!data.loggedIn) {
+        // Si NO está logueado, ocultar el botón
+        perfilBtn.style.display = "none";
+      } else {
+        // Opcional: mostrar el nombre del usuario al lado de la foto
+        const nombre = document.createElement("span");
+        nombre.textContent = `Hola, ${data.nombre}`;
+        perfilBtn.parentNode.insertBefore(nombre, perfilBtn.nextSibling);
+      }
+    });
+</script>
+</html>

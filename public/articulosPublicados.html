@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marketplace UPDS - Mis Artículos</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "foreground-light": "#0d141b",
+                        "foreground-dark": "#f0f2f4",
+                        "subtle-light": "#e7edf3",
+                        "subtle-dark": "#202a35",
+                        "muted-light": "#64748b",
+                        "muted-dark": "#94a3b8",
+                        "success-light": "#22c55e",
+                        "success-dark": "#4ade80",
+                        "danger-light": "#ef4444",
+                        "danger-dark": "#f87171"
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-foreground-light dark:text-foreground-dark">
+<div class="flex flex-col min-h-screen">
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-subtle-light dark:border-subtle-dark">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 text-primary">
+<svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5-10-5-10 5z"></path>
+</svg>
+<h1 class="text-xl font-bold text-foreground-light dark:text-foreground-dark">Marketplace UPDS</h1>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary transition-colors" href="/index.html">Inicio</a>
+<a class="text-sm font-bold text-primary" href="/articulosPublicados.html">Artículos Publicados</a>
+<a class="text-sm font-medium text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary transition-colors" href="/articulosIntercambiados.html">Articulos Intercambiados</a>
+<a class="text-sm font-medium text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary transition-colors" href="/chat.html">Chat</a>
+</nav>
+<div class="flex items-center gap-4">
+<button id="btnNuevoArticulo" class="flex items-center justify-center gap-2 bg-primary text-white rounded-lg h-10 px-4 text-sm font-medium hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined text-base">add</span>
+<span>Nuevo Artículo</span>
+</button>
+<button class="relative">
+<img alt="Foto de perfil" class="size-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPnqmxyZztUymxgQLQ4C9Xmn1Re_6Oust47gFBGuflhIol6uFtmAMW0R3i5-GmhKvTbj9qstzuTY9jIFBq0nefmqxR6Eg7HSwlLPGUnqOs7En0VE6P-Htcx0aQIR5r6ggeAqVBYLnMGkaiqqz2WkwsolMHKrc4_onU-RYGqqIi1Vz7apneYyN_EpNkcbkD6MXNEil4J1dBkc-xbno_-F5bjXzJP6Q3SJjg2YyIKT6ByJ5bi7dmiBqwHfDM0s4pl3lg8hS2GIC_o7E"/>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="max-w-4xl mx-auto">
+<div class="mb-8">
+<h2 class="text-3xl font-bold tracking-tight text-foreground-light dark:text-foreground-dark">Mis Artículos</h2>
+</div>
+<div class="space-y-4">
+<div class="bg-background-light dark:bg-subtle-dark border border-subtle-light dark:border-transparent rounded-lg p-4 flex items-center justify-between gap-4 transition-shadow hover:shadow-md">
+<div class="flex items-center gap-4">
+<img alt="Libro de texto de Matemáticas" class="size-16 rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkJCFL6rgtBXqsv2luboScoUZx7u94rEF2kALjstPClTraYT9Eg-YPATnKBerjJywMxTCNUj9r32TnWiS-nqjh9iOuN8vlp4rK78vfJvv_s4l8jWtRGNLJ78X2mm2K5t4Wlm9kIrZ2KvAC5rGeHhTdjP0ZqzLeeni5hQCNb4DSx94Soju4ozUwg2sgQW30iRYYRJD1WIIHnYAet4K5F5YeeqCilwskM6TmsmNsF0LjlNERIMLGYt6bKqzFCgRNOQGannqQ9AOdP_A"/>
+<div>
+<h3 class="text-lg font-semibold text-foreground-light dark:text-foreground-dark">Libro de texto de Matemáticas</h3>
+<span class="text-sm font-medium text-success-light dark:text-success-dark bg-success-light/10 dark:bg-success-dark/10 px-2 py-1 rounded-full">Intercambiado</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button aria-label="Editar" class="flex items-center justify-center size-9 bg-subtle-light dark:bg-subtle-dark/50 text-muted-light dark:text-muted-dark rounded-lg hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button aria-label="Eliminar" class="flex items-center justify-center size-9 bg-subtle-light dark:bg-subtle-dark/50 text-muted-light dark:text-muted-dark rounded-lg hover:bg-danger-light/10 hover:text-danger-light dark:hover:bg-danger-dark/20 dark:hover:text-danger-dark transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+<button aria-label="Marcar como intercambiado" class="flex items-center justify-center size-9 bg-subtle-light dark:bg-subtle-dark/50 text-muted-light dark:text-muted-dark rounded-lg hover:bg-success-light/10 hover:text-success-light dark:hover:bg-success-dark/20 dark:hover:text-success-dark transition-colors">
+<span class="material-symbols-outlined text-xl">published_with_changes</span>
+</button>
+</div>
+</div>
+<div class="bg-background-light dark:bg-subtle-dark border border-subtle-light dark:border-transparent rounded-lg p-4 flex items-center justify-between gap-4 transition-shadow hover:shadow-md">
+<div class="flex items-center gap-4">
+<img alt="Calculadora científica" class="size-16 rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWUF9hd9CJDJrssj2RoT4P9Xyw9nmzX30T_wKZQUfAYDcQ6JivvHm2L4-f4t6zY5HYQnONtymRtwZtPLkPd-V94SHnzhvmydtMJ92p8VyLk4nM_G8uEtlLsW8ji482zYall9MIpLShFeyB_VAGOxSIO1GHcrWKSmZggwmGA0yJR8U99VI2u0NDYGG83XyfPy59m8SpDM9frSc6PfqIlVVSeNBZKCeY7euSj0zJ4zDj2mB5_timUx5QXja5Jhbt_ACg4TpE_4Tp_vE"/>
+<div>
+<h3 class="text-lg font-semibold text-foreground-light dark:text-foreground-dark">Calculadora científica</h3>
+<span class="text-sm font-medium text-primary bg-primary/10 dark:bg-primary/20 px-2 py-1 rounded-full">Disponible</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button aria-label="Editar" class="flex items-center justify-center size-9 bg-subtle-light dark:bg-subtle-dark/50 text-muted-light dark:text-muted-dark rounded-lg hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button aria-label="Eliminar" class="flex items-center justify-center size-9 bg-subtle-light dark:bg-subtle-dark/50 text-muted-light dark:text-muted-dark rounded-lg hover:bg-danger-light/10 hover:text-danger-light dark:hover:bg-danger-dark/20 dark:hover:text-danger-dark transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+<button aria-label="Marcar como intercambiado" class="flex items-center justify-center size-9 bg-subtle-light dark:bg-subtle-dark/50 text-muted-light dark:text-muted-dark rounded-lg hover:bg-success-light/10 hover:text-success-light dark:hover:bg-success-dark/20 dark:hover:text-success-dark transition-colors">
+<span class="material-symbols-outlined text-xl">published_with_changes</span>
+</button>
+</div>
+</div>
+<div class="bg-background-light dark:bg-subtle-dark border border-subtle-light dark:border-transparent rounded-lg p-4 flex items-center justify-between gap-4 transition-shadow hover:shadow-md">
+<div class="flex items-center gap-4">
+<img alt="Auriculares con cancelación de ruido" class="size-16 rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7XduY5F0fKJlMN_o0bt01PkT9g0etloa7rlDx3UwfoiIDO8NJ87CTHjjgmxabZCF-VoABD8L10RQl63v5D0uzsbwvTFvpBgkxWqh-UuW_yncC3zguZk5J-aUtDM68d1wKYRm_Bsm9Bmo6R2IMCzrHBxCMOuyo_t5JvBdI-UuwNlipSR0n9Jea1J3jgfu8G19LzDEEoPFzGnGkorbG-sVDKODPv0sIBI3MHYyggmT1gZWIZaOjdlgGCmzakHIAWZs8RPvHAcfsW6g"/>
+<div>
+<h3 class="text-lg font-semibold text-foreground-light dark:text-foreground-dark">Auriculares con cancelación de ruido</h3>
+<span class="text-sm font-medium text-primary bg-primary/10 dark:bg-primary/20 px-2 py-1 rounded-full">Disponible</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button aria-label="Editar" class="flex items-center justify-center size-9 bg-subtle-light dark:bg-subtle-dark/50 text-muted-light dark:text-muted-dark rounded-lg hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button aria-label="Eliminar" class="flex items-center justify-center size-9 bg-subtle-light dark:bg-subtle-dark/50 text-muted-light dark:text-muted-dark rounded-lg hover:bg-danger-light/10 hover:text-danger-light dark:hover:bg-danger-dark/20 dark:hover:text-danger-dark transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+<button aria-label="Marcar como intercambiado" class="flex items-center justify-center size-9 bg-subtle-light dark:bg-subtle-dark/50 text-muted-light dark:text-muted-dark rounded-lg hover:bg-success-light/10 hover:text-success-light dark:hover:bg-success-dark/20 dark:hover:text-success-dark transition-colors">
+<span class="material-symbols-outlined text-xl">published_with_changes</span>
+</button>
+</div>
+</div>
+<div class="bg-background-light dark:bg-subtle-dark border border-subtle-light dark:border-transparent rounded-lg p-4 flex items-center justify-between gap-4 transition-shadow hover:shadow-md">
+<div class="flex items-center gap-4">
+<img alt="Mochila para portátil" class="size-16 rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwMuOV9_qiDsAlBWSWMzWsGR2z5Raq17gpTMVYWwd3wYiT0NkMT9bwxJjG1qJBxsS6T4qtulWEqItShMTHZhxGr3651f0KN-H17-qUZA-GpodOfbfghw4Tv5jCr3yIU6w2KfT6CrWvWC3VmYi7xDpRdGHZi6POFa7ZsBARRGv2iqu7kiXzb20pllZlw-dKS1kyUDNF5yhNUOWNNlK-_dA9n_Cjxh-W6ZJQ307QyyjH7lvTnA31rRHRgHFrSdI--o7yl2-IxN98rt4"/>
+<div>
+<h3 class="text-lg font-semibold text-foreground-light dark:text-foreground-dark">Mochila para portátil</h3>
+<span class="text-sm font-medium text-success-light dark:text-success-dark bg-success-light/10 dark:bg-success-dark/10 px-2 py-1 rounded-full">Intercambiado</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button aria-label="Editar" class="flex items-center justify-center size-9 bg-subtle-light dark:bg-subtle-dark/50 text-muted-light dark:text-muted-dark rounded-lg hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button aria-label="Eliminar" class="flex items-center justify-center size-9 bg-subtle-light dark:bg-subtle-dark/50 text-muted-light dark:text-muted-dark rounded-lg hover:bg-danger-light/10 hover:text-danger-light dark:hover:bg-danger-dark/20 dark:hover:text-danger-dark transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+<button aria-label="Marcar como intercambiado" class="flex items-center justify-center size-9 bg-subtle-light dark:bg-subtle-dark/50 text-muted-light dark:text-muted-dark rounded-lg hover:bg-success-light/10 hover:text-success-light dark:hover:bg-success-dark/20 dark:hover:text-success-dark transition-colors">
+<span class="material-symbols-outlined text-xl">published_with_changes</span>
+</button>
+</div>
+</div>
+<div class="bg-background-light dark:bg-subtle-dark border border-subtle-light dark:border-transparent rounded-lg p-4 flex items-center justify-between gap-4 transition-shadow hover:shadow-md">
+<div class="flex items-center gap-4">
+<img alt="Lámpara de escritorio LED" class="size-16 rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp-cAmomXloZpXaT5-KcCwZ8h61UcMZbVeMpS96wNYGSBuK279ob1y2yh3iWD0eQc6KeqQcanZQcisJce3XsPVN206wbYZ6h9-FWu7dHmxSkJJUjAtz3WbqzstMWGueXtuX1iXrgMqHOseUpajImHD1VhfGh1_-KO73hThQMmUjlHD1ZmKIKQcYJqSLsZp7I81ehqN8G0tnGId5B6W-58zdyrrbq5q-Fy67fWsBTpZRn9ZyGFdt9HyIzr9y-S_EWL3Pe8JEbcLMfM"/>
+<div>
+<h3 class="text-lg font-semibold text-foreground-light dark:text-foreground-dark">Lámpara de escritorio LED</h3>
+<span class="text-sm font-medium text-primary bg-primary/10 dark:bg-primary/20 px-2 py-1 rounded-full">Disponible</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button aria-label="Editar" class="flex items-center justify-center size-9 bg-subtle-light dark:bg-subtle-dark/50 text-muted-light dark:text-muted-dark rounded-lg hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button aria-label="Eliminar" class="flex items-center justify-center size-9 bg-subtle-light dark:bg-subtle-dark/50 text-muted-light dark:text-muted-dark rounded-lg hover:bg-danger-light/10 hover:text-danger-light dark:hover:bg-danger-dark/20 dark:hover:text-danger-dark transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+<button aria-label="Marcar como intercambiado" class="flex items-center justify-center size-9 bg-subtle-light dark:bg-subtle-dark/50 text-muted-light dark:text-muted-dark rounded-lg hover:bg-success-light/10 hover:text-success-light dark:hover:bg-success-dark/20 dark:hover:text-success-dark transition-colors">
+<span class="material-symbols-outlined text-xl">published_with_changes</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body>
+<script>
+    const btn = document.getElementById('btnNuevoArticulo');
+    btn.addEventListener('click', () => {
+        window.location.href = 'PublicarArticulo.html';
+    });
+</script>
+</html>

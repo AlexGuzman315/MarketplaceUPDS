@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marketplace UPDS - Publicar Articulo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css"/>
+<script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .form-select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23137fec' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex flex-col min-h-screen">
+<header class="bg-background-light dark:bg-background-dark border-b border-black/10 dark:border-white/10 sticky top-0 z-20">
+<div class="container mx-auto px-4">
+<nav class="flex items-center justify-between py-4">
+<div class="flex items-center gap-4">
+    <div class="w-8 h-8 text-primary">
+        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+        </svg>
+    </div>
+    <h1 class="text-xl font-bold text-black/90 dark:text-white/90">Marketplace UPDS</h1>
+</div>
+<div class="hidden md:flex items-center gap-8 text-sm font-medium text-black/70 dark:text-white/70">
+<a id="inicio" class="text-sm font-medium text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary transition-colors" href="/index.html">Inicio</a>
+<a id="articulosPublicados" class="text-sm font-bold text-primary" href="/articulosPublicados.html">Artículos Publicados</a>
+<a id="articulosIntercambiados" class="text-sm font-medium text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary transition-colors" href="/articulosIntercambiados.html">Articulos Intercambiados</a>
+<a id="chat" class="text-sm font-medium text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary transition-colors" href="/chat.html">Chat</a>
+</div>
+<div class="flex items-center gap-4">
+    <button id="startTour" 
+        class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90">
+        Iniciar Demostracion
+    </button>
+    <button id="notificacion" class="w-10 h-10 flex items-center justify-center rounded-full bg-background-light dark:bg-background-dark hover:bg-black/5 dark:hover:bg-white/5 text-black/60 dark:text-white/60 transition-colors">
+        <span class="material-symbols-outlined">
+            notifications
+        </span>
+    </button>
+    <div id="perfil" class="w-10 h-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCIhdcx9dicMig4oHK1myGd1pWQPnVkgwA04o5rQN6a-gM9gbhP7tvJANO4lfAdbH4PAYpobAgC-R2KReDQ3KmmyRkVP7DO_fLYJNIZoAH9q6cHWyu7ph5xBikfvcHFVqjaV-udbbtwOSw8yetauBOBw0-IbhaFGOD-9wkxX2pKPIY0fUc5ixZqtxSLQZRWY90riJWlVy-jlUyzFJ0xh22ss7_H0tRTHwDwGzsiJOyBMPlwmqbdLDVP2izwFQL-JhRSwxpOr3YXrrA");'></div>
+</div>
+</nav>
+</div>
+</header>
+<main class="flex-grow">
+<div class="container mx-auto px-4 py-8 md:py-16">
+<div class="max-w-2xl mx-auto bg-white/50 dark:bg-black/10 p-6 sm:p-8 rounded-xl shadow-sm">
+<div class="mb-8 text-center">
+<h2 class="text-3xl sm:text-4xl font-bold text-black/90 dark:text-white/90 mb-2">Publicar Artículo para Intercambio</h2>
+<p class="text-black/60 dark:text-white/60">Comparte tus artículos con la comunidad estudiantil de la UPDS.</p>
+</div>
+<form class="space-y-6">
+<div>
+<label class="block text-sm font-medium text-black/80 dark:text-white/80 mb-2" for="title">Título del Artículo</label>
+<input class="w-full bg-background-light dark:bg-background-dark border border-black/10 dark:border-white/10 rounded-lg h-12 px-4 text-black/90 dark:text-white/90 focus:ring-2 focus:ring-primary focus:border-primary transition-all placeholder:text-black/40 dark:placeholder:text-white/40" id="title" placeholder="Ej: Libro de Cálculo I en buen estado" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-black/80 dark:text-white/80 mb-2" for="description">Descripción</label>
+<textarea class="w-full bg-background-light dark:bg-background-dark border border-black/10 dark:border-white/10 rounded-lg p-4 text-black/90 dark:text-white/90 focus:ring-2 focus:ring-primary focus:border-primary transition-all placeholder:text-black/40 dark:placeholder:text-white/40 resize-y" id="description" placeholder="Describe tu artículo, su estado y qué buscas a cambio" rows="4"></textarea>
+</div>
+<div>
+<label class="block text-sm font-medium text-black/80 dark:text-white/80 mb-2" for="category">Categoría</label>
+<select class="form-select appearance-none w-full bg-background-light dark:bg-background-dark border border-black/10 dark:border-white/10 rounded-lg h-12 px-4 text-black/90 dark:text-white/90 focus:ring-2 focus:ring-primary focus:border-primary transition-all" id="category">
+<option>Selecciona una categoría</option>
+<option>Libros y Apuntes</option>
+<option>Material de Estudio</option>
+<option>Electrónica</option>
+<option>Ropa y Accesorios</option>
+<option>Otros</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-black/80 dark:text-white/80 mb-2">Fotos del Artículo</label>
+    <div class="flex items-center justify-center w-full" id="dropzone-file">
+        <label class="flex flex-col items-center justify-center w-full h-48 border-2 border-black/10 dark:border-white/20 border-dashed rounded-lg cursor-pointer bg-background-light dark:bg-background-dark hover:bg-black/5 dark:hover:bg-white/5 transition-colors" for="dropzone-file">
+            <div class="flex flex-col items-center justify-center pt-5 pb-6 text-center">
+                <span class="material-symbols-outlined text-4xl text-black/50 dark:text-white/50 mb-3">photo_camera</span>
+                <p class="mb-2 text-sm text-black/70 dark:text-white/70"><span class="font-semibold">Sube una o varias fotos</span></p>
+                <p class="text-xs text-black/50 dark:text-white/50">PNG, JPG, GIF hasta 10MB</p>
+            </div>
+            <input class="hidden" multiple="" type="file"/>
+        </label>
+    </div>
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 mt-4" id="delete-file">
+        <div class="relative group">
+            <img alt="Preview 1" class="h-24 w-full object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2ZlwlZF3U8ZSVJucxAn8BjMRgXITO34GktWsV1uw0HYaUXTHkmvs4T32bir0lqiH5MA0_PQ9x-xZeK-2_TQ30mUogU4TPxK1ObbvXu07fsXcSWFeIbtfGqkVOl4ZzDMrlaJtHXnz8f5yc92gFDBKYCcKJjG_eXoAKogfS7brESFgQGYEWu7Ne5TNqJqruaxYAZkc2qAYcfhTJ8lK6IOU23O_IKeO9ICEhNNBfgaHateC2LAD0aZaVAuCL4K1tzE6zEQb7UXoRvug"/>
+            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-lg">
+                <button class="text-white">
+                <span class="material-symbols-outlined">delete</span>
+                </button>
+            </div>
+        </div>
+        <div class="relative group">
+            <img alt="Preview 2" class="h-24 w-full object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMQy31sDjDloiuewdrMB5Ap_zhqIrunT6nS6XucvoZHsP8SSqRpDYze8m93bpgEhS555VXyPsQCSlIloUbBDiODyLW-D1NWgbDNlmM1f2CnwNl8167EaQQ4MctRn_s6DXsCepOO-k5X7DVQOlirPIb5cPNT-3C1_-ZLssSQEFLoQCdsRIk3253xLt2JbIwYKmu3UfSNrk9KcEI0cUM8AmLQ19N7CAKwG3Rc3L4T3de1Mormrop8sQZhVm53SaPx9DFNvmp6iEIR1I"/>
+            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-lg">
+                <button class="text-white">
+                    <span class="material-symbols-outlined">delete</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="flex flex-col-reverse sm:flex-row items-center justify-end gap-4 pt-4">
+        <button id="btn-preview" class="w-full sm:w-auto flex items-center justify-center h-12 px-6 bg-transparent text-primary font-bold rounded-lg hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-background-dark transition-all" type="button">
+            Previsualizar
+        </button>
+        <button id="btn-publish" class="w-full sm:w-auto flex items-center justify-center gap-2 h-12 px-6 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-background-dark transition-all" type="submit">
+            <span>Publicar Artículo</span>
+            <span class="material-symbols-outlined">swap_horiz</span>
+        </button>
+    </div>
+</form>
+</div>
+</div>
+</main>
+</div>
+</body>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const driver = window.driver.js.driver({
+      showProgress: true,  // Muestra el progreso (ej: 1/3)
+      overlayOpacity: 0.6, // Oscurece el fondo
+      nextBtnText: "Siguiente",
+      prevBtnText: "Atrás",
+      doneBtnText: "Finalizar"
+    });
+
+    // Definir los pasos
+    driver.setSteps([
+      {
+        element: "#inicio",
+        popover: {
+          title: "Menu de Inicio",
+          description: "Esto te lleva a la seccion de Inicio de la pagina.",
+          side: "bottom"
+        }
+      },
+      {
+        element: "#articulosPublicados",
+        popover: {
+          title: "Menu de Articulos Publicados",
+          description: "Esta seccion te mostrara todos tus articulos publicados",
+          side: "bottom"
+        }
+      },
+      {
+        element: "#articulosIntercambiados",
+        popover: {
+          title: "Menu de Articulos Intercambiados",
+          description: "Esta seccion te mostrara todos tus articulos Intercambiados.",
+          side: "bottom"
+        }
+      },
+      {
+        element: "#chat",
+        popover: {
+          title: "Menu de Chat",
+          description: "Aquí te mostrara todos tus chats",
+          side: "bottom"
+        }
+      },
+      {
+        element: "#notificacion",
+        popover: {
+          title: "Notificaciones",
+          description: "Aquí te mostrara todas las notificaciones de tus publicaciones o contactos.",
+          side: "bottom"
+        }
+      },
+      {
+        element: "#perfil",
+        popover: {
+          title: "Perfil",
+          description: "Aquí te mostrara todos tus datos personales.",
+          side: "bottom"
+        }
+      },
+      {
+        element: "#title",
+        popover: {
+          title: "Título del artículo",
+          description: "Aquí debes escribir el nombre del artículo que quieres intercambiar.",
+          side: "bottom"
+        }
+      },
+      {
+        element: "#description",
+        popover: {
+          title: "Descripción",
+          description: "Detalla el estado de tu artículo y qué buscas a cambio.",
+          side: "right"
+        }
+      },
+      {
+        element: "#category",
+        popover: {
+          title: "Categoría",
+          description: "Selecciona a qué categoría pertenece tu artículo.",
+          side: "bottom"
+        }
+      },
+      {
+        element: "#dropzone-file",
+        popover: {
+          title: "Sube fotos",
+          description: "Añade imágenes de tu artículo para que otros lo vean.",
+          side: "bottom"
+        }
+      },
+      {
+        element: "#delete-file",
+        popover: {
+          title: "Fotos Agregada",
+          description: "Puedes eliminar tus fotos que no desee subir presionando click al centro de la imagen.",
+          side: "top"
+        }
+      },
+      {
+        element: "#btn-preview",
+        popover: {
+          title: "Previsualizar",
+          description: "Haz clic aquí para ver cómo se mostrará tu publicación antes de enviarla.",
+          side: "top"
+        }
+      },
+      {
+        element: "#btn-publish",
+        popover: {
+          title: "Publicar artículo",
+          description: "Cuando todo esté listo, publica tu artículo para que otros lo vean.",
+          side: "top"
+        }
+      }
+    ]);
+
+    // Lanzar el tour al hacer clic en un botón
+    document.querySelector("#startTour").addEventListener("click", () => {
+      driver.drive();
+    });
+  });
+</script>
+
+</html>
