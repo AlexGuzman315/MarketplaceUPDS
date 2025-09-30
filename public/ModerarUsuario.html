@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              display: ["Public Sans"],
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex min-h-screen">
+<aside class="w-80 bg-background-light dark:bg-background-dark p-6 flex flex-col justify-between border-r border-primary/20 dark:border-primary/30">
+<div>
+<h1 class="text-2xl font-bold text-background-dark dark:text-background-light mb-8">Panel de Admin</h1>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg bg-primary text-white" href="/ModerarUsuario.html">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium">Gestión de Usuarios</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-background-dark dark:text-background-light hover:bg-primary/10 dark:hover:bg-primary/20" href="/ModerarPublicacion.html">
+<span class="material-symbols-outlined">edit_document</span>
+<span class="font-medium">Moderación de Publicaciones</span>
+</a>
+</nav>
+</div>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-background-dark dark:text-background-light hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="font-medium">Volver a la plataforma</span>
+</a>
+</aside>
+<main class="flex-1 p-8">
+<header class="mb-8">
+<h2 class="text-4xl font-bold text-background-dark dark:text-background-light">Gestión de Usuarios</h2>
+</header>
+<div class="mb-6">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-background-dark/50 dark:text-background-light/50">search</span>
+<input class="w-full pl-12 pr-4 py-3 rounded-lg bg-white dark:bg-background-dark border border-primary/20 dark:border-primary/30 focus:ring-2 focus:ring-primary focus:outline-none text-background-dark dark:text-background-light placeholder:text-background-dark/50 dark:placeholder:text-background-light/50" placeholder="Buscar usuarios por nombre o correo" type="text"/>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark rounded-xl shadow-sm overflow-hidden border border-primary/20 dark:border-primary/30">
+<table class="w-full text-left">
+<thead class="bg-background-light dark:bg-background-dark/50 border-b border-primary/20 dark:border-primary/30">
+<tr>
+<th class="p-4 font-semibold text-background-dark dark:text-background-light">Usuario</th>
+<th class="p-4 font-semibold text-background-dark dark:text-background-light">Correo</th>
+<th class="p-4 font-semibold text-background-dark dark:text-background-light">Rol</th>
+<th class="p-4 font-semibold text-background-dark dark:text-background-light">Estado</th>
+<th class="p-4 font-semibold text-background-dark dark:text-background-light">Acciones</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-primary/10 dark:border-primary/20">
+<td class="p-4 align-middle text-background-dark dark:text-background-light">Carlos Mendoza</td>
+<td class="p-4 align-middle text-background-dark/70 dark:text-background-light/70">carlos.mendoza@example.com</td>
+<td class="p-4 align-middle">
+<span class="px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary">Usuario</span>
+</td>
+<td class="p-4 align-middle">
+<span class="px-3 py-1 rounded-full text-sm font-medium bg-green-500/10 text-green-600 dark:text-green-400">Activo</span>
+</td>
+<td class="p-4 align-middle">
+<a class="font-semibold text-primary hover:underline" href="#">Ver detalles</a>
+</td>
+</tr>
+<tr class="border-b border-primary/10 dark:border-primary/20">
+<td class="p-4 align-middle text-background-dark dark:text-background-light">Sofía Ramírez</td>
+<td class="p-4 align-middle text-background-dark/70 dark:text-background-light/70">sofia.ramirez@example.com</td>
+<td class="p-4 align-middle">
+<span class="px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary">Usuario</span>
+</td>
+<td class="p-4 align-middle">
+<span class="px-3 py-1 rounded-full text-sm font-medium bg-green-500/10 text-green-600 dark:text-green-400">Activo</span>
+</td>
+<td class="p-4 align-middle">
+<a class="font-semibold text-primary hover:underline" href="#">Ver detalles</a>
+</td>
+</tr>
+<tr class="border-b border-primary/10 dark:border-primary/20">
+<td class="p-4 align-middle text-background-dark dark:text-background-light">Diego Vargas</td>
+<td class="p-4 align-middle text-background-dark/70 dark:text-background-light/70">diego.vargas@example.com</td>
+<td class="p-4 align-middle">
+<span class="px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary">Usuario</span>
+</td>
+<td class="p-4 align-middle">
+<span class="px-3 py-1 rounded-full text-sm font-medium bg-red-500/10 text-red-600 dark:text-red-400">Suspendido</span>
+</td>
+<td class="p-4 align-middle">
+<a class="font-semibold text-primary hover:underline" href="#">Ver detalles</a>
+</td>
+</tr>
+<tr class="border-b border-primary/10 dark:border-primary/20">
+<td class="p-4 align-middle text-background-dark dark:text-background-light">Isabel Torres</td>
+<td class="p-4 align-middle text-background-dark/70 dark:text-background-light/70">isabel.torres@example.com</td>
+<td class="p-4 align-middle">
+<span class="px-3 py-1 rounded-full text-sm font-medium bg-yellow-500/20 text-yellow-700 dark:text-yellow-400">Administrador</span>
+</td>
+<td class="p-4 align-middle">
+<span class="px-3 py-1 rounded-full text-sm font-medium bg-green-500/10 text-green-600 dark:text-green-400">Activo</span>
+</td>
+<td class="p-4 align-middle">
+<a class="font-semibold text-primary hover:underline" href="#">Ver detalles</a>
+</td>
+</tr>
+<tr>
+<td class="p-4 align-middle text-background-dark dark:text-background-light">Ricardo Castro</td>
+<td class="p-4 align-middle text-background-dark/70 dark:text-background-light/70">ricardo.castro@example.com</td>
+<td class="p-4 align-middle">
+<span class="px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary">Usuario</span>
+</td>
+<td class="p-4 align-middle">
+<span class="px-3 py-1 rounded-full text-sm font-medium bg-green-500/10 text-green-600 dark:text-green-400">Activo</span>
+</td>
+<td class="p-4 align-middle">
+<a class="font-semibold text-primary hover:underline" href="#">Ver detalles</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</main>
+</div>
+
+</body></html>

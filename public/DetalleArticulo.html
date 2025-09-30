@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"><head>
+<html lang="es">
+<head>
 <meta charset="utf-8"/>
 <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
 <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700%3B800%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
@@ -17,148 +18,220 @@
             "background-light": "#f6f7f8",
             "background-dark": "#101922",
           },
-          fontFamily: {
-            display: ["Public Sans"],
-          },
-          borderRadius: {
-            DEFAULT: "0.25rem",
-            lg: "0.5rem",
-            xl: "0.75rem",
-            full: "9999px"
-          },
+          fontFamily: { display: ["Public Sans"] },
+          borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
         },
       },
     };
-  </script>
+</script>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+
 <div class="flex min-h-screen w-full flex-col">
-<header class="sticky top-0 z-20 w-full border-b border-slate-200/80 bg-background-light/80 backdrop-blur-sm dark:border-slate-800/80 dark:bg-background-dark/80">
-<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-<div class="flex h-16 items-center justify-between">
-<div class="flex items-center gap-8">
-<a class="flex items-center gap-2 text-xl font-bold text-slate-900 dark:text-white" href="#">
-<span class="material-symbols-outlined text-primary text-3xl"> store </span>
-<span>UPDS Marketplace</span>
-</a>
-<nav class="hidden items-center gap-6 text-sm font-medium lg:flex">
-<a class="text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary" href="./index.html">Inicio</a>
-<a class="text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary" href="#">Categorías</a>
-<a class="text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary" href="#">Mis Artículos</a>
-<a class="text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary" href="#">Mensajes</a>
-</nav>
-</div>
-<div class="flex items-center gap-4">
-<div class="hidden md:flex">
-<label class="relative">
-<span class="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"> search </span>
-<input class="h-10 w-full rounded-lg border border-slate-300 bg-transparent pl-10 pr-4 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:text-white dark:focus:border-primary" placeholder="Buscar" type="text"/>
-</label>
-</div>
-<button class="relative rounded-full p-2 text-slate-500 hover:bg-slate-200 hover:text-slate-700 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200">
-<span class="material-symbols-outlined"> notifications </span>
-</button>
-<div class="h-10 w-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDbtLEiWas2VSgkn_eD4v0Kf7QqmOhSRiOpAsM9KsXLEaJN4ThLA76_hyQrme0Nvbo8RU-AVpD5LPhauQ4M7G26x3mz2eqGYSQwyisF8NjohXbiEsJWFaZCHaLoLxUOoI8xpMt6xJJh3rDCJ5M8RXl3cgCz9gfLmJJPB3EbI6GDI4iT2eQKu17oGhfLQpONK57-oIkVb25IUNyI0npoFGqvDeD_4esrpDlB8zJHxf9H_Mc-T2uBfBCeHEKWHpRc3qqiRrIhs-Ma8lo");'></div>
-</div>
-</div>
-</div>
+<header class="sticky top-0 z-20 bg-white backdrop-blur-sm border-b border-subtle-light dark:border-subtle-dark">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center gap-4">
+        <a class="flex items-center gap-2 text-primary" href="/index.html">
+          <img src="/images/UPDS.png" alt="UPDS Logo" class="h-12 w-32" >
+          <img src="/images/letras.png" alt="UPDS Logo" class="h-12 w-32" >
+        </a>
+      </div>
+        <nav class="hidden md:flex items-center gap-6">
+        <a class="text-lg font-bold text-primary" href="/index.html">Inicio</a>
+        <a class="text-lg font-medium text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary transition-colors" href="/Articulos.html">Mis Artículos</a>
+        <a class="text-lg font-medium text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary transition-colors" href="/Carrito.html">Mi carrito</a>
+        <a class="text-lg font-medium text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary transition-colors" href="/chat.html">Chat</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <button id="acceso" class="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-primary rounded-full hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">Acceder</button>
+        <button id="perfilBtn" class="relative">
+          <img alt="Foto de perfil" class="size-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPnqmxyZztUymxgQLQ4C9Xmn1Re_6Oust47gFBGuflhIol6uFtmAMW0R3i5-GmhKvTbj9qstzuTY9jIFBq0nefmqxR6Eg7HSwlLPGUnqOs7En0VE6P-Htcx0aQIR5r6ggeAqVBYLnMGkaiqqz2WkwsolMHKrc4_onU-RYGqqIi1Vz7apneYyN_EpNkcbkD6MXNEil4J1dBkc-xbno_-F5bjXzJP6Q3SJjg2YyIKT6ByJ5bi7dmiBqwHfDM0s4pl3lg8hS2GIC_o7E"/>
+        </button>
+        <button id="notificacion" class="w-10 h-10 flex items-center justify-center rounded-full bg-background-light dark:bg-background-dark hover:bg-black/5 dark:hover:bg-white/5 text-black/60 dark:text-white/60 transition-colors">
+            <span class="material-symbols-outlined">
+                notifications
+            </span>
+        </button>
+        <button class="md:hidden p-2 rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors">
+          <span class="material-symbols-outlined text-text-light dark:text-text-dark">menu</span>
+        </button>
+      </div>
+    </div>
+  </div>
 </header>
 <main class="mx-auto w-full max-w-7xl flex-1 px-4 py-8 sm:px-6 lg:px-8">
 <div class="grid grid-cols-1 gap-12 lg:grid-cols-5">
-<div class="lg:col-span-3">
-<div class="mb-4 text-sm text-slate-500 dark:text-slate-400">
-<a class="hover:text-primary" href="#">Marketplace</a>
-<span>/</span>
-<a class="hover:text-primary" href="#">Libros</a>
-</div>
-<h1 class="mb-6 text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Libro de Cálculo I Edición Especial</h1>
-<div class="relative">
-<div class="flex snap-x snap-mandatory scroll-smooth overflow-x-auto pb-4">
-<div class="snap-center mr-4 w-60 flex-shrink-0">
-<img class="h-auto w-full rounded-xl object-cover" src="https://http2.mlstatic.com/D_NQ_NP_677219-MPE54288929290_032023-O.webp"/>
-</div>
-<div class="snap-center mr-4 w-full flex-shrink-0">
-<img class="h-auto w-full rounded-xl object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_oZ_qX_rT_uV_wX_yZ_aB_cD_eF_gH_iJ_kL_mN_oP_qR_sT_uV_wX_yZ_aB_cD_eF_gH_iJ_kL_mN_oP_qR_sT_uV_wX_yZ_aB_cD_eF_g"/>
-</div>
-<div class="snap-center mr-4 w-full flex-shrink-0">
-<img class="h-auto w-full rounded-xl object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_oY_o"/>
-</div>
-</div>
-</div>
-</div>
-<div class="lg:col-span-2">
-<div class="sticky top-24 rounded-xl border border-slate-200 bg-white p-6 shadow-lg dark:border-slate-800 dark:bg-background-dark">
-<div class="mb-6 flex items-baseline justify-between">
-<span class="text-2xl font-bold text-primary">Para Intercambio</span>
-<span class="rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">Poco Uso</span>
-</div>
-<div class="mb-6">
-<h3 class="mb-2 text-lg font-semibold text-slate-900 dark:text-white">Descripción</h3>
-<p class="text-slate-600 dark:text-slate-300">
-                Libro de "Cálculo I" utilizado en la carrera de Ingeniería de Sistemas. El libro está en excelentes condiciones, casi nuevo, sin anotaciones ni rayones. Ideal para estudiantes que cursan la materia y buscan material de apoyo de calidad. Estoy interesado en intercambiarlo por un libro de "Álgebra Lineal" o "Programación en C++".
-              </p>
-</div>
-<div class="mb-6">
-<h3 class="mb-2 text-lg font-semibold text-slate-900 dark:text-white">Condiciones de Intercambio</h3>
-<div class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
-<span class="material-symbols-outlined text-xl"> swap_horiz </span>
-<span>Intercambio en el campus de la UPDS</span>
-</div>
-</div>
-<div class="mb-6 rounded-lg bg-background-light p-4 dark:bg-slate-800/50">
-<h3 class="mb-3 text-lg font-semibold text-slate-900 dark:text-white">Vendedor</h3>
-<div class="flex items-center gap-4">
-<div class="h-14 w-14 flex-shrink-0 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD48wDMG93ddxBoIF-CuzAtMcoUhUfY92q43OJVlD11R0SXfuSI77MF3Xry9yJ5S3esuXtt6d0SYEtnjSG3iVkLFdATGhFTJH2nTnhRV26GSS9E5fC2S9kzrnx1wWPcQFsPQ5rxngj2dl67wMH8ox90Lo4fvZ8Dggg1YDbXdIg2-hllu7wyr2XxtHlWRRLsP8-VVhJOmJS0NAeSkCoQaoWSyhG0XMe9MDdpDgOr-_ifUeW1PLqPI_Ty-qUFS7_G8epCzYeqJd-QLi0");'></div>
-<div>
-<p class="font-bold text-slate-800 dark:text-slate-100">@JuanPerez</p>
-<div class="flex items-center gap-1 text-sm text-slate-500 dark:text-slate-400">
-<span class="material-symbols-outlined text-base text-amber-500"> star </span>
-<span>5.0 (8 intercambios)</span>
-</div>
-</div>
-</div>
-</div>
-<button class="flex h-12 w-full items-center justify-center rounded-lg bg-primary px-6 text-base font-bold text-white shadow-md shadow-primary/30 transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/40">
-              Contactar al Vendedor
-            </button>
-</div>
-</div>
-</div>
-<div class="mt-16">
-<h2 class="mb-6 text-2xl font-bold text-slate-900 dark:text-white">Comentarios y Preguntas</h2>
-<div class="space-y-6">
-<div class="flex items-start gap-4">
-<div class="mt-1 h-10 w-10 flex-shrink-0 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCavxVBzBdOGGAiTNRTTbNvlIJegzFC4vKFTElhpRQspvuHX4lm0NxQKxdAKxkywCcAZ10u44YNu4CMwTNfex91pHKFwe6JhRN97P7mM2_zPQi_zuUED82ptzKEeC2tPhbw2mZjUVTIEbwfEbAxUvNdsyswWuLh9TgSvTlst1bvMednwO-VYQjI9PfVrInIFjSmdCaorDIzjLTYKs9PDUBjDyGRYbJ06TslwMyUa8tCK7DHdgW-hk6z_ePpk-Amg2M8tS6MtFqLwWs");'></div>
-<div>
-<div class="flex items-center gap-2">
-<p class="font-semibold text-slate-800 dark:text-slate-100">AnaG</p>
-<p class="text-xs text-slate-500 dark:text-slate-400">hace 1 día</p>
-</div>
-<p class="mt-1 text-slate-700 dark:text-slate-300">¡Hola! Tengo el libro de Álgebra Lineal que buscas. ¿Te interesa intercambiar?</p>
-</div>
-</div>
-<div class="ml-14 flex items-start gap-4 border-l-2 border-slate-200 pl-4 dark:border-slate-800">
-<div class="mt-1 h-10 w-10 flex-shrink-0 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBXidhc-bNECi6koWzA96T0gO8z6y9jzUR3GSTWiRcBkfES7fX3w6_9_DKiQsQcgoXG902-dxqwW_eBI7KvaKrnLWbUmH7ixJx9S8dWYq9ZHAN7E1Q_sH8Bw4xT2c1G3iebxfsU0XW7y2GyQhNJ3u4fb09dMyE7Daj0CLmMErKRXAcHbFym5F74GdO8ySIu9JiX6g3jlgnTicrUKinXcNIbgpDqDCe6OJvXT2NQy04YQKgZU9KQ_CO6XxyGQ4acx2Ys6aytwIrJw6k");'></div>
-<div>
-<div class="flex items-center gap-2">
-<p class="font-semibold text-slate-800 dark:text-slate-100">JuanPerez</p>
-<p class="text-xs text-slate-500 dark:text-slate-400">hace 5 horas</p>
-</div>
-<p class="mt-1 text-slate-700 dark:text-slate-300">¡Hola Ana! Claro que sí. ¿Qué edición es y en qué estado está?</p>
-</div>
-</div>
-</div>
-<div class="mt-8 flex items-start gap-4">
-<div class="mt-1 h-10 w-10 flex-shrink-0 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDfIz_qTNz7tGPCDytd5CU8lOGBilOpetIlpvPd2tenRVNK2mMkRNT7oB2qsz4SzUgXKv2xnDZQHLWs1_cJytmhxGiXriDzm6T5fLRwSL3KPbb6vaW_3sroIgUfQxvoFKpUQ8TvbleYki8EYNqz8nICPOH5yuT7jdD6v8a22dlfHEg2E3IS73FSnGADRwBqbGXEoZG7koCzQforrulmnM6OgsK4yaNreALpiL-l7IkIo9NFRRmG0pGQsELO-4jBAai9Qe_iTWZhqh8");'></div>
-<div class="flex-1">
-<textarea class="w-full rounded-lg border border-slate-300 bg-transparent p-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:text-white dark:focus:border-primary" placeholder="Escribe un comentario..." rows="3"></textarea>
-<button class="mt-2 flex h-10 items-center justify-center rounded-lg bg-primary px-5 text-sm font-bold text-white shadow-md shadow-primary/30 transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/40">
-              Enviar Comentario
-            </button>
-</div>
-</div>
+
+  <!-- Columna izquierda: imágenes -->
+  <div class="lg:col-span-3">
+    <div class="mb-4 text-sm text-slate-500 dark:text-slate-400">
+      <a class="hover:text-primary" href="/index.html">Inicio</a>
+      <span>/</span>
+      <a id="categoria" class="hover:text-primary" href="#"></a>
+    </div>
+    <h1 id="titulo" class="mb-6 text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white"></h1>
+    
+    <!-- Imagen principal -->
+    <div class="relative">
+      <div id="imagenPrincipal" class="h-[450px] w-full flex-shrink-0 rounded-xl bg-cover bg-center"></div>
+    </div>
+
+    <!-- Grid de miniaturas -->
+    <div id="previewContainer" class="mt-4 grid grid-cols-5 gap-4"></div>
+  </div>
+
+  <!-- Columna derecha: detalles del artículo -->
+  <div class="lg:col-span-2">
+    <div class="sticky top-24 rounded-xl border border-slate-200 bg-white p-6 shadow-lg dark:border-slate-800 dark:bg-background-dark">
+      <div class="mb-6 flex items-center justify-between">
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Detalles del Artículo</h2>
+        <span id="estado" class="rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary"></span>
+      </div>
+      <div class="mb-6">
+        <h3 class="mb-2 text-lg font-semibold text-slate-900 dark:text-white">Descripción</h3>
+        <p id="descripcion" class="text-slate-600 dark:text-slate-300"></p>
+      </div>
+      <div class="mb-6">
+        <h3 class="mb-2 text-lg font-semibold text-slate-900 dark:text-white">Precio</h3>
+        <p id="precio" class="text-slate-800 dark:text-white text-lg font-bold"></p>
+      </div>
+      <div class="mb-6">
+        <h3 class="mb-2 text-lg font-semibold text-slate-900 dark:text-white">Cantidad Disponible</h3>
+        <p id="stock" class="text-slate-700 dark:text-slate-300"></p>
+      </div>
+      <!-- Propietario y botón -->
+      <div class="mb-6 rounded-lg bg-background-light p-4 dark:bg-slate-800/50">
+        <h3 class="mb-3 text-lg font-semibold text-slate-900 dark:text-white">Propietario</h3>
+        <div class="flex items-center gap-4">
+          <div id="propietarioFoto" class="h-14 w-14 flex-shrink-0 rounded-full bg-cover bg-center"></div>
+          <div>
+            <input type="hidden" id="vendedorId">
+            <p id="propietarioNombre" class="font-bold text-slate-800 dark:text-slate-100"></p>
+            <div class="flex items-center gap-1 text-sm text-slate-500 dark:text-slate-400">
+              <span class="material-symbols-outlined text-base text-amber-500"> star </span>
+              <span id="propietarioRating"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button id="btnVentas" class="flex h-12 w-full items-center justify-center rounded-lg bg-primary px-6 text-base font-bold text-white shadow-md shadow-primary/30 transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/40">
+        Contactar al Vendedor
+      </button>
+    </div>
+  </div>
+
 </div>
 </main>
 </div>
 
-</body></html>
+<script>
+async function cargarDetalle() {
+  const params = new URLSearchParams(window.location.search);
+  const articuloId = params.get("id");
+
+  if (!articuloId) {
+    alert("No se especificó el artículo");
+    return;
+  }
+
+  try {
+    const res = await fetch(`/api/articulos/${articuloId}`);
+    const data = await res.json();
+
+    if (!data.success) {
+      alert(data.message);
+      return;
+    }
+
+    const art = data.articulo;
+
+    // Datos básicos
+    document.getElementById("titulo").textContent = art.titulo;
+    document.getElementById("descripcion").textContent = art.descripcion;
+    document.getElementById("precio").textContent = `Bs. ${art.precio}`;
+    document.getElementById("stock").textContent = `${art.stock} Unidades`;
+    document.getElementById("estado").textContent = art.estado;
+    document.getElementById("categoria").textContent = art.categoria;
+    document.getElementById("vendedorId").value = art.UsuarioId;
+
+    // Propietario
+    document.getElementById("propietarioNombre").textContent = art.usuario + ' ' + art.apellido;
+    //document.getElementById("propietarioFoto").style.backgroundImage = `url('${art.usuario.foto || "default.png"}')`;
+    //document.getElementById("propietarioRating").textContent = `${art.usuario.rating} (${art.usuario.intercambios} intercambios)`;
+
+    // Imagen principal
+    const imagenPrincipal = document.getElementById("imagenPrincipal");
+    if (art.imagenes.length > 0) {
+      imagenPrincipal.style.backgroundImage = `url('${art.imagenes[0].filename}')`;
+    } else {
+      imagenPrincipal.style.backgroundImage = `url('default.png')`;
+    }
+
+    // Grid de miniaturas
+    const previewContainer = document.getElementById("previewContainer");
+    previewContainer.innerHTML = "";
+    art.imagenes.forEach(img => {
+      const thumb = document.createElement("div");
+      thumb.className = "h-24 w-full rounded-lg bg-cover bg-center cursor-pointer";
+      thumb.style.backgroundImage = `url('${img.filename}')`;
+      // Al hacer click cambia la imagen principal
+      thumb.addEventListener("click", () => {
+        imagenPrincipal.style.backgroundImage = `url('${img.filename}')`;
+      });
+      previewContainer.appendChild(thumb);
+    });
+
+  } catch (err) {
+    console.error(err);
+    alert("Error al cargar el artículo");
+  }
+}
+
+cargarDetalle();
+</script>
+
+<script>
+document.getElementById("btnVentas").addEventListener("click", async () => {
+
+
+  try {
+    const res = await fetch("/api/session"); // Endpoint que valida sesión
+    const data = await res.json();
+    console.log("Sesión:", data);
+
+    if (data.loggedIn) {
+      const compradorId = data.idUsuario; // ID de la sesión
+      const vendedorId = document.getElementById("vendedorId").value; // ID del input
+
+      // POST para crear/abrir chat
+      const chatRes = await fetch("/api/chats", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ compradorId, vendedorId })
+      });
+
+      if (!chatRes.ok) throw new Error("Error creando chat");
+
+      const chatData = await chatRes.json();
+
+      // Redirigir al chat con el ID
+      window.location.href = `chat.html?chatId=${chatData.chatId}`;
+    } else {
+      // Usuario no está logueado, preguntar
+      const confirmar = confirm("Debes iniciar sesión para contactar al vendedor. ¿Deseas iniciar sesión ahora?");
+      if (confirmar) {
+        window.location.href = "iniciosesion.html"; // Página de inicio de sesión
+      }
+    }
+  } catch (err) {
+    console.error("Error verificando sesión:", err);
+    alert("No se pudo verificar la sesión. Intenta de nuevo.");
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,47 +1,21 @@
 <!DOCTYPE html>
-<html lang="es"><head>
+<html lang="es">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Chat - Marketplace UPDS</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#137fec",
-                        "background-light": "#f6f7f8",
-                        "background-dark": "#101922",
-                    },
-                    fontFamily: {
-                        "display": ["Public Sans"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
-<style type="text/tailwindcss">
-        .active-link {
-            @apply text-primary font-semibold;
-        }
-        .active-link .material-symbols-outlined {
-            @apply text-primary;
-        }
-    </style>
+<script src="/socket.io/socket.io.js"></script>
+<link rel="stylesheet" href="/css/estilo.css">
+<script src="/js/estiloBotones.js"></script>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-white">
 <div class="flex h-screen">
+
 <aside class="w-64 flex-col bg-white dark:bg-background-dark/50 shadow-lg hidden lg:flex">
 <div class="flex items-center gap-3 p-6 border-b border-background-light/80 dark:border-background-dark/80">
 <div class="w-8 h-8 text-primary">
@@ -56,13 +30,13 @@
 <span class="material-symbols-outlined">home</span>
 <span>Inicio</span>
 </a>
-<a class="flex items-center gap-3 px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20 rounded-lg" href="/articulosPublicados.html">
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20 rounded-lg" href="/Articulos.html">
 <span class="material-symbols-outlined">inventory_2</span>
-<span>Artículos Publicados</span>
+<span>Mis Artículos</span>
 </a>
-<a class="flex items-center gap-3 px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20 rounded-lg" href="/articulosIntercambiados.html">
+<a class="flex items-center gap-3 px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20 rounded-lg" href="/Carrito.html">
 <span class="material-symbols-outlined">swap_horiz</span>
-<span>Articulos Intercambiados</span>
+<span>Mi carrito</span>
 </a>
 <a class="flex items-center gap-3 px-4 py-2 rounded-lg active-link bg-primary/10 dark:bg-primary/20" href="/chat.html">
 <span class="material-symbols-outlined">chat</span>
@@ -70,99 +44,33 @@
 </a>
 </nav>
 </aside>
-<div class="flex-1 flex flex-col">
-<header class="flex items-center justify-between px-6 py-4 border-b border-background-light/80 dark:border-background-dark/80 shadow-sm bg-white dark:bg-background-dark/50 lg:bg-transparent dark:lg:bg-transparent">
-<div class="flex items-center gap-3 lg:hidden">
-<div class="w-8 h-8 text-primary">
-<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-<h1 class="text-xl font-bold">Marketplace UPDS</h1>
-</div>
-<div class="hidden lg:block"></div>
-<div class="flex items-center gap-4">
-<button class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-primary/10 dark:hover:bg-primary/20">
-<span class="material-symbols-outlined">notifications</span>
-</button>
-<img alt="User avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0zCDQsSY3uSMo7Cr_QcfJBCveqI9ohhuSCwDNKAfc2Q5XmEcMc0vZHnrf36KZm-i0LlEmTk7L1eMZgcpyNmed4LdYX4sa4qz4qHbLSUM702yMpI-Qljv6EGtzYGvVzl9xaT4u6YlPD1OYgDwbadFYbo3c2Q8iQIDu4kH0bpkMIutzHEoCvhm5Y7tAiYOgWpzAm1yaR_XCDWMh4YGKauRtLc70yuUW8JbFlQE38J0Jf3e8FBKxqULj43K0KYcAnQMwBCnuKs8gu00"/>
-</div>
-</header>
-<main class="flex-1 flex overflow-hidden">
-<div class="w-full md:w-2/5 lg:w-1/3 xl:w-1/4 flex flex-col border-r border-background-light/80 dark:border-background-dark/80 bg-white dark:bg-background-dark/50">
-<div class="p-4 border-b border-background-light/80 dark:border-background-dark/80">
-<h2 class="text-xl font-bold">Conversaciones</h2>
-</div>
-<div class="flex-1 overflow-y-auto">
-<a class="flex items-center gap-4 p-4 hover:bg-primary/10 dark:hover:bg-primary/20 bg-primary/10 dark:bg-primary/20 border-r-4 border-primary" href="#">
-<img alt="Seller Avatar" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmFgTBMS3IQnKrIQ-KFr5SPJlodxiUlFgdi02wN2wDRkxOhhzmomFVqrUX0E7NCTT33OxQkkN2z6TcoJ_tckLxjzFJiC_m5SF___GS-7W7fV-9JBFFXHeZ-AjOlUX0-pdXc-25CzShzgaiASnTebIeLU7HIqUPVMfrjA_JBZLkMABV48Nf4Y1ujHVXz35nR3rU8ZrNSqr_hn10KiHPNUT5siW--KOvbyQCSF6muVBEYXgsOMwDwjBX5uikViGIvOw2cTcNvmdKO0c"/>
-<div class="flex-1 truncate">
-<h3 class="font-semibold text-gray-800 dark:text-white">Vendedor del Artículo</h3>
-<p class="text-sm text-gray-500 dark:text-gray-400 truncate">Genial! Podrías decirme más sobre su condición?</p>
-</div>
-</a>
-<a class="flex items-center gap-4 p-4 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
-<img alt="User Avatar" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4VTJHnnYwdj9EoeWs4HvLa-TP66VGPAXp-GVaL0EhtMwujoCEpUewE9m3-hdEslS5ZM1r5ZzzuQQHjKLvL6_4tIXWyFsmWl-OhM4P9gR8ntHTnK1_9P6lFleKFLzR1mZ_6RLthKEj1cf1Ee1l-MjzsFC7uT0mPycUHNTAw5hZCWwYNd49JZDbkjVYu8LI03VSI39gcj6LQr-K9q2Q9xCBILDCf5BF-A4zxC32wEVsJaQo6KYnWNvW3bvwm1Ha5RwAe1HqtdubjRQ"/>
-<div class="flex-1 truncate">
-<h3 class="font-semibold text-gray-800 dark:text-white">Ana Lopez</h3>
-<p class="text-sm text-gray-500 dark:text-gray-400 truncate">Hola, estoy interesada en los apuntes de cálculo.</p>
-</div>
-</a>
-<a class="flex items-center gap-4 p-4 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
-<img alt="User Avatar" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcEjr_qaSI1up7Q1JQKRvCzU08Rbmt3QS9MdYPjuazRNdaYSnNL_jaB1GEElZMgyN5i8Du3qroHEbFUApbCoMMfH8OTC1nq0c8kp35vGTfdX1VxtUDxBc-3C8T7aLQgHWofgcRHbEW6tMNXxn4dQmpZd7fCA4DNekpXDp-nkHsFtTS0Er-onWzigNiUDVnYcqdveP32pS3GJTT3J1bpc1OduP0e9ZfVj5izCxjrnHR6y3Q6-VRaYFMuXE3FFoWF-F29XjZQM_FCZY"/>
-<div class="flex-1 truncate">
-<h3 class="font-semibold text-gray-800 dark:text-white">Carlos Gomez</h3>
-<p class="text-sm text-gray-500 dark:text-gray-400 truncate">Te parece si nos encontramos en la biblioteca?</p>
-</div>
-</a>
-</div>
-</div>
-<div class="flex-1 flex flex-col bg-background-light dark:bg-background-dark">
-<div class="flex items-center gap-4 p-4 border-b border-background-light/80 dark:border-background-dark/80 bg-white dark:bg-background-dark/50">
-<img alt="Seller Avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmFgTBMS3IQnKrIQ-KFr5SPJlodxiUlFgdi02wN2wDRkxOhhzmomFVqrUX0E7NCTT33OxQkkN2z6TcoJ_tckLxjzFJiC_m5SF___GS-7W7fV-9JBFFXHeZ-AjOlUX0-pdXc-25CzShzgaiASnTebIeLU7HIqUPVMfrjA_JBZLkMABV48Nf4Y1ujHVXz35nR3rU8ZrNSqr_hn10KiHPNUT5siW--KOvbyQCSF6muVBEYXgsOMwDwjBX5uikViGIvOw2cTcNvmdKO0c"/>
-<h2 class="text-xl font-bold text-gray-800 dark:text-white">Vendedor del Artículo</h2>
-</div>
-<div class="flex-1 p-6 space-y-6 overflow-y-auto">
-<div class="flex items-start gap-4">
-<img alt="Seller Avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmFgTBMS3IQnKrIQ-KFr5SPJlodxiUlFgdi02wN2wDRkxOhhzmomFVqrUX0E7NCTT33OxQkkN2z6TcoJ_tckLxjzFJiC_m5SF___GS-7W7fV-9JBFFXHeZ-AjOlUX0-pdXc-25CzShzgaiASnTebIeLU7HIqUPVMfrjA_JBZLkMABV48Nf4Y1ujHVXz35nR3rU8ZrNSqr_hn10KiHPNUT5siW--KOvbyQCSF6muVBEYXgsOMwDwjBX5uikViGIvOw2cTcNvmdKO0c"/>
-<div class="flex flex-col items-start">
-<span class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Vendedor</span>
-<div class="bg-white dark:bg-background-dark/60 text-gray-800 dark:text-gray-200 p-3 rounded-lg rounded-tl-none max-w-xs sm:max-w-md shadow-sm">
-<p>¡Hola! Me interesa el artículo que vendes. ¿Sigue disponible?</p>
-</div>
-</div>
-</div>
-<div class="flex items-start gap-4 justify-end">
-<div class="flex flex-col items-end">
-<span class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Tú</span>
-<div class="bg-primary text-white p-3 rounded-lg rounded-tr-none max-w-xs sm:max-w-md shadow-sm">
-<p>¡Hola! Sí, todavía está disponible. ¿Qué te gustaría saber?</p>
-</div>
-</div>
-<img alt="Buyer Avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0zCDQsSY3uSMo7Cr_QcfJBCveqI9ohhuSCwDNKAfc2Q5XmEcMc0vZHnrf36KZm-i0LlEmTk7L1eMZgcpyNmed4LdYX4sa4qz4qHbLSUM702yMpI-Qljv6EGtzYGvVzl9xaT4u6YlPD1OYgDwbadFYbo3c2Q8iQIDu4kH0bpkMIutzHEoCvhm5Y7tAiYOgWpzAm1yaR_XCDWMh4YGKauRtLc70yuUW8JbFlQE38J0Jf3e8FBKxqULj43K0KYcAnQMwBCnuKs8gu00"/>
-</div>
-<div class="flex items-start gap-4">
-<img alt="Seller Avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmFgTBMS3IQnKrIQ-KFr5SPJlodxiUlFgdi02wN2wDRkxOhhzmomFVqrUX0E7NCTT33OxQkkN2z6TcoJ_tckLxjzFJiC_m5SF___GS-7W7fV-9JBFFXHeZ-AjOlUX0-pdXc-25CzShzgaiASnTebIeLU7HIqUPVMfrjA_JBZLkMABV48Nf4Y1ujHVXz35nR3rU8ZrNSqr_hn10KiHPNUT5siW--KOvbyQCSF6muVBEYXgsOMwDwjBX5uikViGIvOw2cTcNvmdKO0c"/>
-<div class="flex flex-col items-start">
-<span class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Vendedor</span>
-<div class="bg-white dark:bg-background-dark/60 text-gray-800 dark:text-gray-200 p-3 rounded-lg rounded-tl-none max-w-xs sm:max-w-md shadow-sm">
-<p>Genial! Podrías decirme más sobre su condición?</p>
-</div>
-</div>
-</div>
-</div>
-<div class="p-4 bg-white dark:bg-background-dark/50 border-t border-background-light/80 dark:border-background-dark/80">
-<div class="flex items-center gap-4">
-<input class="flex-1 w-full px-4 py-2 bg-background-light dark:bg-background-dark/60 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400" placeholder="Escribe un mensaje..." type="text"/>
-<button class="flex items-center justify-center px-4 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark">
-<span>Enviar</span>
-<span class="material-symbols-outlined ml-2">send</span>
-</button>
-</div>
-</div>
-</div>
-</main>
-</div>
-</div>
 
-</body></html>
+<!-- 🟦 MAIN -->
+<div class="flex-1 flex flex-col">
+  <main class="flex-1 flex overflow-hidden">
+    <!-- LISTA DE CONVERSACIONES -->
+    <div class="w-full md:w-2/5 lg:w-1/3 xl:w-1/4 flex flex-col border-r bg-white dark:bg-background-dark/50">
+      <div class="p-4 border-b">
+        <h2 class="text-xl font-bold">Conversaciones</h2>
+      </div>
+      <div id="listaChats" class="flex-1 overflow-y-auto"></div>
+    </div>
+
+    <!-- CHAT PRINCIPAL -->
+    <div class="flex-1 flex flex-col bg-background-light dark:bg-background-dark">
+      <div id="perfil-container" class="flex items-center gap-4 p-4 border-b border-background-light/80 dark:border-background-dark/80 bg-white dark:bg-background-dark/50">
+      </div>
+      <div class="flex-1 p-6 space-y-6 overflow-y-auto" id="chat-container"></div>
+      <div class="p-4 bg-white dark:bg-background-dark/50 border-t">
+        <div class="flex items-center gap-4">
+          <input id="msgInput" type="text" placeholder="Escribe un mensaje..." class="flex-1 px-4 py-2 border rounded-lg"/>
+          <button id="sendBtn" class="px-4 py-2 bg-primary text-white rounded-lg">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</div>
+</body>
+<script src="/js/chat.js"></script>
+</html>

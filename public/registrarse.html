@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UPDS Exchange - Registro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="/js/estiloBotones.js"></script>
+<link rel="stylesheet" href="/css/estilo.css">
+<script src="/socket.io/socket.io.js"></script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="flex flex-col min-h-screen">
+<header class="bg-background-light dark:bg-background-dark/80 backdrop-blur-sm sticky top-0 z-10 border-b border-gray-200 dark:border-gray-800">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex h-16 items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="text-primary size-8">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold text-gray-900 dark:text-white">UPDS Exchange</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary dark:hover:text-primary transition-colors" href="#">Inicio</a>
+<a class="text-sm font-medium hover:text-primary dark:hover:text-primary transition-colors" href="#">Explorar</a>
+<a class="text-sm font-medium hover:text-primary dark:hover:text-primary transition-colors" href="#">Vender</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined"> notifications </span>
+</button>
+<div class="size-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB0tDKPh8OSBac_fO0DvKnQ4pOactCZUD7YCKd7uwCGBEi7zoNERpHb5NlxXGU1AiWZUjgC6hI6oRyfFZ6JBXMsQHXyQMkj5cepIs4ah8ob-1pOojwyYZAqhSYWeQ1bKUQEiUzQ2BTh985e39gPhXcnm3vZiGMB5Sh-N8BTkCCxn0BvIm4yhRV6D_M8zRXDpd8xW5r1EC11upiyrwZqfsGnfPjbdeidswz0LCbW5JqWi1b56obseYsFDQpi6lRSBxHo9NttMtXD_gk");'></div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+<div class="w-full max-w-2xl space-y-8 bg-white dark:bg-background-dark/50 p-8 rounded-xl shadow-lg">
+<div>
+<h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">Crea tu cuenta</h2>
+<p class="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
+              Únete a la comunidad de Marketplace UPDS.
+            </p>
+</div>
+<form id="formRegistro" class="mt-8 space-y-6" method="POST" enctype="multipart/form-data">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-1">
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="nombre">Nombre</label>
+<input class="block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-700 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-500 shadow-sm focus:border-primary focus:outline-none focus:ring-primary sm:text-sm bg-background-light dark:bg-background-dark" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required="" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="apellido-paterno">Apellido Paterno</label>
+<input class="block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-700 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-500 shadow-sm focus:border-primary focus:outline-none focus:ring-primary sm:text-sm bg-background-light dark:bg-background-dark" id="apellido-paterno" name="apellido-paterno" placeholder="Ingresa tu apellido paterno" required="" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="apellido-materno">Apellido Materno</label>
+<input class="block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-700 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-500 shadow-sm focus:border-primary focus:outline-none focus:ring-primary sm:text-sm bg-background-light dark:bg-background-dark" id="apellido-materno" name="apellido-materno" placeholder="Ingresa tu apellido materno" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="telefono">Teléfono</label>
+<input class="block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-700 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-500 shadow-sm focus:border-primary focus:outline-none focus:ring-primary sm:text-sm bg-background-light dark:bg-background-dark" id="telefono" name="telefono" placeholder="Ingresa tu teléfono" required="" type="tel"/>
+</div>
+<div class="space-y-1">
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="ci">Carnet de Identidad</label>
+<input class="block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-700 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-500 shadow-sm focus:border-primary focus:outline-none focus:ring-primary sm:text-sm bg-background-light dark:bg-background-dark" id="ci" name="ci" placeholder="Ingresa tu carnet de identidad" required="" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="carrera">Carrera</label>
+<input class="block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-700 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-500 shadow-sm focus:border-primary focus:outline-none focus:ring-primary sm:text-sm bg-background-light dark:bg-background-dark" id="carrera" name="carrera" placeholder="Ingresa el nombre de tu carrera" required="" type="text"/>
+</div>
+<div class="space-y-1 md:col-span-2">
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="email">Correo Electrónico
+<input autocomplete="email" class="block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-700 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-500 shadow-sm focus:border-primary focus:outline-none focus:ring-primary sm:text-sm bg-background-light dark:bg-background-dark" id="email" name="email" placeholder="Ingresa tu correo" required="" type="email"/>
+</label></div>
+<div class="space-y-1">
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="password">Contraseña</label>
+<input autocomplete="new-password" class="block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-700 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-500 shadow-sm focus:border-primary focus:outline-none focus:ring-primary sm:text-sm bg-background-light dark:bg-background-dark" id="password" name="password" placeholder="Ingresa tu contraseña" required="" type="password"/>
+</div>
+<div class="space-y-1">
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="confirm-password">Confirmar Contraseña</label>
+<input autocomplete="new-password" class="block w-full appearance-none rounded-lg border border-gray-300 dark:border-gray-700 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-500 shadow-sm focus:border-primary focus:outline-none focus:ring-primary sm:text-sm bg-background-light dark:bg-background-dark" id="confirm-password" name="confirm-password" placeholder="Confirma tu contraseña" required="" type="password"/>
+</div>
+</div>
+<div class="mt-6">
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300"> Foto para el Perfil </label>
+<div class="mt-1 flex justify-center rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-700 px-6 pt-5 pb-6">
+<div class="space-y-1 text-center">
+<span id="icon" class="material-symbols-outlined text-4xl text-gray-400 dark:text-gray-600"> cloud_upload </span>
+<div class="flex text-sm text-gray-600 dark:text-gray-400">
+<label class="relative cursor-pointer rounded-md font-medium text-primary hover:text-primary/80 focus-within:outline-none focus-within:ring-2 focus-within:ring-primary/50 focus-within:ring-offset-2 dark:ring-offset-background-dark" for="file-upload">
+<span>Sube un archivo</span>
+    <div id="preview-container" class="mt-4 flex justify-center">
+        <img id="preview-img" class="h-36 w-36 rounded-full object-cover hidden" alt="Vista previa">
+    </div>
+<input class="sr-only" id="file-upload" name="file-upload" type="file"/>
+</label>
+</div>
+<p id="peso" class="text-xs text-gray-500 dark:text-gray-500">PNG, JPG, GIF hasta 10MB</p>
+</div>
+</div>
+</div>
+<div>
+<button class="group relative flex w-full justify-center rounded-lg border border-transparent bg-primary py-3 px-4 text-sm font-medium text-white hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 dark:focus:ring-offset-background-dark transition-colors" type="submit">
+                Registrarme
+              </button>
+</div>
+</form>
+</div>
+</main>
+</div>
+
+</body>
+<script src="/js/registrarse.js"></script>
+</html>

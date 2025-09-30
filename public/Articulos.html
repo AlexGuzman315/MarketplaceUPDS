@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marketplace UPDS - Mis Artículos</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link rel="stylesheet" href="/css/estilo.css">
+<script src="/js/estiloBotones.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-foreground-light dark:text-foreground-dark">
+<div class="flex flex-col min-h-screen">
+<header class="sticky top-0 z-20 bg-white backdrop-blur-sm border-b border-subtle-light dark:border-subtle-dark">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center gap-4">
+        <a class="flex items-center gap-2 text-primary" href="/index.html">
+          <img src="/images/UPDS.png" alt="UPDS Logo" class="h-12 w-32" >
+          <img src="/images/letras.png" alt="UPDS Logo" class="h-12 w-32" >
+        </a>
+      </div>
+        <nav class="hidden md:flex items-center gap-6">
+        <a class="text-lg font-medium text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary transition-colors" href="/index.html">Inicio</a>
+        <a class="text-lg font-bold text-primary" href="/Articulos.html">Mis Artículos</a>
+        <a class="text-lg font-medium text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary transition-colors" href="/Carrito.html">Mi carrito</a>
+        <a class="text-lg font-medium text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary transition-colors" href="/chat.html">Chat</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <button id="acceso" class="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-primary rounded-full hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">Acceder</button>
+        <button id="perfilBtn" class="relative hidden">
+        </button>
+        <button id="notificacion" class="w-10 h-10 flex items-center justify-center rounded-full bg-background-light dark:bg-background-dark hover:bg-black/5 dark:hover:bg-white/5 text-black/60 dark:text-white/60 transition-colors">
+            <span class="material-symbols-outlined">
+                notifications
+            </span>
+        </button>
+        <button class="md:hidden p-2 rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors">
+          <span class="material-symbols-outlined text-text-light dark:text-text-dark">menu</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+<main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="max-w-6xl mx-auto">
+  <div class="flex items-center justify-between mb-6">
+    <!-- Título -->
+    <h2 class="text-3xl font-bold">Mis Artículos Publicados</h2>
+
+    <!-- Botón al lado derecho -->
+    <button id="btnNuevoArticulo" class="px-4 py-2 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-colors">
+      <span class="material-symbols-outlined text-base">add</span>
+      <span>Nuevo Artículo</span>
+    </button>
+  </div>
+  <div class="flex flex-col md:flex-row gap-4 mb-6">
+    <div class="relative flex-grow">
+      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+        <svg aria-hidden="true" class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path clip-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" fill-rule="evenodd"></path>
+        </svg>
+      </div>
+      <input class="block w-full rounded-lg border-gray-300 dark:border-gray-600 py-2 pl-10 pr-3 text-gray-900 dark:text-white bg-white dark:bg-gray-800 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6" id="search" name="search" placeholder="Buscar por artículo..." type="text"/>
+    </div>
+    <div class="flex items-center space-x-4">
+      <span class="text-sm font-medium text-gray-500 dark:text-gray-400">Filtrar por estado:</span>
+      <div class="flex space-x-2">
+        <button class="px-3 py-1 text-sm font-medium rounded-full bg-primary text-white">Todos</button>
+        <button class="px-3 py-1 text-sm font-medium rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600">Pendiente</button>
+        <button class="px-3 py-1 text-sm font-medium rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600">Aceptado</button>
+        <button class="px-3 py-1 text-sm font-medium rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600">Rechazado</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="articulosGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+</div>
+</main>
+</div>
+<!-- MODAL PARA EDITAR ARTÍCULO -->
+<div id="editModal" class="fixed inset-0 bg-black/60 hidden flex items-start justify-center z-50 overflow-y-auto">
+  <div class="bg-white dark:bg-gray-900 rounded-xl p-6 max-w-lg w-full shadow-lg relative my-10">
+    <!-- Botón cerrar -->
+    <button id="closeEditModal" class="absolute top-3 right-3 text-gray-500 hover:text-black">✖</button>
+
+    <h2 class="text-2xl font-bold mb-4">Editar Artículo</h2>
+
+    <form id="formEditar" class="space-y-4" enctype="multipart/form-data">
+      <!-- ID oculto -->
+      <input id="editarId" type="text" class="hidden">
+
+      <!-- Título -->
+      <div>
+        <label class="block text-sm font-medium mb-1">Título</label>
+        <input id="editarTitulo" type="text" class="w-full border rounded-lg px-3 py-2">
+      </div>
+
+      <!-- Descripción -->
+      <div>
+        <label class="block text-sm font-medium mb-1">Descripción</label>
+        <textarea id="editarDescripcion" rows="3" class="w-full border rounded-lg px-3 py-2"></textarea>
+      </div>
+
+      <!-- Categoría -->
+      <div>
+        <label class="block text-sm font-medium text-black/80 dark:text-white/80 mb-2" for="category">Categoría</label>
+        <select id="editarCategoria" class="form-select appearance-none w-full bg-background-light dark:bg-background-dark border border-black/10 dark:border-white/10 rounded-lg h-12 px-4 text-black/90 dark:text-white/90 focus:ring-2 focus:ring-primary focus:border-primary transition-all">
+      
+        </select>
+      </div>
+
+      <!-- Precio -->
+      <div>
+        <label class="block text-sm font-medium mb-1">Precio</label>
+        <input id="editarPrecio" type="number" class="w-full border rounded-lg px-3 py-2">
+      </div>
+
+      <!-- Stock -->
+      <div>
+        <label class="block text-sm font-medium mb-1">Stock</label>
+        <input id="editarStock" type="number" class="w-full border rounded-lg px-3 py-2">
+      </div>
+
+      <!-- Fotos del Artículo -->
+      <label class="block text-sm font-medium text-black/80 dark:text-white/80 mb-2">Fotos del Artículo</label>
+      <div class="flex items-center justify-center w-full">
+        <div class="flex items-center justify-center w-full mb-2">
+          <button id="btnAgregarImagen" type="button" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90">Agregar fotos</button>
+        </div>
+        <input id="editarImagenes" name="files" type="file" class="hidden" multiple>
+      </div>
+
+      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 mt-4" id="previewContainer"></div>
+
+      <!-- Botones -->
+      <div class="flex justify-end gap-2">
+        <button type="button" id="cancelarEdicion" class="px-4 py-2 rounded-lg border">Cancelar</button>
+        <button type="submit" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90">Guardar Cambios</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="/js/articuloPublicado.js"></script>
+<script src="/js/acceso.js"></script>
+</body>
+</html>

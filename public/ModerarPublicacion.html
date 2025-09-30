@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Moderación de Publicaciones</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex min-h-screen">
+<aside class="w-80 bg-background-light dark:bg-background-dark p-6 flex flex-col justify-between border-r border-primary/20 dark:border-primary/30">
+<div>
+<h1 class="text-2xl font-bold text-background-dark dark:text-background-light mb-8">Panel de Admin</h1>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-background-dark dark:text-background-light hover:bg-primary/10 dark:hover:bg-primary/20" href="/ModerarUsuario.html">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium">Gestión de Usuarios</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg bg-primary text-white" href="/ModerarPublicacion.html">
+<span class="material-symbols-outlined">edit_document</span>
+<span class="font-medium">Moderación de Publicaciones</span>
+</a>
+</nav>
+</div>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-background-dark dark:text-background-light hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="font-medium">Volver a la plataforma</span>
+</a>
+</aside>
+<main class="flex-1 p-8">
+<header class="mb-8">
+<h2 class="text-4xl font-bold text-background-dark dark:text-background-light">Gestión de Usuarios</h2>
+</header>
+<div class="mb-6">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-background-dark/50 dark:text-background-light/50">search</span>
+<input class="w-full pl-12 pr-4 py-3 rounded-lg bg-white dark:bg-background-dark border border-primary/20 dark:border-primary/30 focus:ring-2 focus:ring-primary focus:outline-none text-background-dark dark:text-background-light placeholder:text-background-dark/50 dark:placeholder:text-background-light/50" placeholder="Buscar usuarios por nombre o correo" type="text"/>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark rounded-xl shadow-sm overflow-hidden border border-primary/20 dark:border-primary/30">
+<table class="w-full text-sm text-left text-slate-500 dark:text-slate-400">
+<thead class="text-xs text-slate-700 dark:text-slate-300 uppercase bg-slate-50 dark:bg-slate-800">
+<tr>
+<th class="px-6 py-3" scope="col">Artículo</th>
+<th class="px-6 py-3" scope="col">Usuario</th>
+<th class="px-6 py-3" scope="col">Descripción</th>
+<th class="px-6 py-3 text-center" scope="col">Acciones</th>
+</tr>
+</thead>
+<tbody>
+
+</tbody>
+</table>
+<div class="mt-8 bg-white dark:bg-slate-900/50 rounded-lg shadow p-6">
+<h4 class="text-md font-semibold text-slate-900 dark:text-white mb-4">Rechazar Publicación</h4>
+<form>
+<label class="block mb-2 text-sm font-medium text-slate-600 dark:text-slate-300" for="reason">Motivo del rechazo (opcional):</label>
+<textarea class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-200 text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5" id="reason" placeholder="Ej: La foto no es clara, la descripción es insuficiente..." rows="3"></textarea>
+</form>
+</div>
+</div>
+</main>
+</div>
+</body>
+<script src="/js/moderarPublicacion.js"></script>
+</html>

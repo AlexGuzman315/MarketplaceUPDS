@@ -1,12 +1,14 @@
-const { Pool } = require("pg");
+const mysql = require("mysql2/promise");
 
-const pool = new Pool({
-  host: 'dpg-d3b9srm3jp1c73aseaug-a.oregon-postgres.render.com',
-  user: 'marketplaceupds_user',
-  password: 'CvFUrsOlm3mIRUU2R6fs20zyhuFD9Rud',
-  database: 'marketplaceupds',
-  port: 5432,
-  ssl: { rejectUnauthorized: false }
+const pool = mysql.createPool({
+  host: "localhost", // prueba esto en vez de localhost
+  user: "root",
+  password: "123",
+  database: "marketplaceupds",
+  port: 3306,        // o 3307 si tu instalación lo usa
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
 });
 
 module.exports = pool;

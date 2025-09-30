@@ -1,0 +1,74 @@
+body {
+    font-family: 'Public Sans', sans-serif;
+}
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+.status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            font-size: 0.75rem;
+            line-height: 1rem;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .status-pendiente {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+        .dark .status-pendiente {
+            background-color: #78350f;
+            color: #fef3c7;
+        }
+        .status-aceptado {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+        .dark .status-aceptado {
+            background-color: #064e3b;
+            color: #d1fae5;
+        }
+        .status-rechazado {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+        .dark .status-rechazado {
+            background-color: #7f1d1d;
+            color: #fee2e2;
+        }
+        .active-link {
+    @apply text-primary font-semibold;
+  }
+  .active-link .material-symbols-outlined {
+    @apply text-primary;
+  }
+  .form-select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23137fec' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        .form-input::placeholder {
+            color: #6b7280;
+        }
+        .dark .form-input::placeholder {
+            color: #9ca3af;
+        }
+        @keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-out {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(10px); }
+}
+.animate-fade-in { animation: fade-in 0.3s ease-out; }
+.animate-fade-out { animation: fade-out 0.3s ease-in forwards; }

@@ -6,6 +6,12 @@ const session = require("express-session");
 
 const app = express();
 
+app.use(session({
+  secret: "clave_super_secreta",
+  resave: false,
+  saveUninitialized: true
+}));
+
 // Middleware para JSON
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -13,66 +19,34 @@ app.use(express.urlencoded({ extended: true }));
 // Servir archivos estáticos (HTML, CSS, imágenes)
 app.use(express.static(path.join(__dirname, "../public")));
 
-app.use(session({
-  secret: "clave_super_secreta",
-  resave: false,
-  saveUninitialized: true
-}));
+const categoriasRouter = require("./routes/categorias");
+const inicioSesionRouter = require("./routes/InicioSesion");
+const gestionArticuloRouter = require("./routes/GestionArticulo");
+const registrarseRouter = require("./routes/registrar");
+const rolesRouter = require("./routes/roles");
 
-// Ruta de prueba
+app.use("/api/categorias", categoriasRouter);
+app.use("/", inicioSesionRouter); 
+app.use("/api/articulos", gestionArticuloRouter);
+const chatRouter = require("./routes/chats");
+app.use("/api/chats", chatRouter);
+app.use("/", registrarseRouter);
+app.use("/api/roles", rolesRouter);
+
+// Ruta de inicio
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
-app.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-
-  if (!email || !password) {
-    return res.status(400).send("⚠️ Correo y contraseña son requeridos");
-  }
-
-  try {
-    // Buscar usuario en la BD
-    const { rows } = await pool.query("SELECT * FROM usuario WHERE correo = $1", [email]);
-
-    if (rows.length === 0) {
-      return res.status(401).send("❌ Usuario no encontrado");
-    }
-
-    const user = rows[0];
-
-    // Comparar contraseña ingresada con la guardada en la BD
-    //const validPassword = await bcrypt.compare(password, user.contrasenia);
-    const validPassword = password === user.contrasenia;
-
-    if (!validPassword) {
-      return res.status(401).send("❌ Contraseña incorrecta");
-    }
-
-    req.session.user = { id: user.id, nombre: user.nombre, email: user.email };
-
-    // Si es correcto, redirige al dashboard
-    res.redirect("/index.html");
-
-  } catch (err) {
-    console.error("Error en login:", err);
-    res.status(500).send("⚠️ Error interno del servidor");
-  }
+// Manejo de errores 404
+app.use((req, res) => {
+  res.status(404).send("Página no encontrada");
 });
 
-// 🔹 Aquí va la ruta para consultar la sesión
-app.get("/api/session", (req, res) => {
-  if (req.session.user) {
-    res.json({ loggedIn: true, nombre: req.session.user.nombre });
-  } else {
-    res.json({ loggedIn: false });
-  }
-});
-
-// Ruta para cerrar sesión
-app.get("/logout", (req, res) => {
-  req.session.destroy();
-  res.redirect("/");
+// Manejo de errores internos
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Error interno del servidor");
 });
 
 module.exports = app;
